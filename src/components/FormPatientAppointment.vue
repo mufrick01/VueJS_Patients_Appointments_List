@@ -24,7 +24,7 @@ import FormPatientAppointment from '@/components/FormPatientAppointment.vue';
         </label>
         <label class="row">
             <span class="col-4 text-start">Notes</span>
-            <textarea maxlength="200" class="col-8" v-model="formPatientAppointment.notes"></textarea>
+            <textarea maxlength="150" class="col-8" v-model="formPatientAppointment.notes"></textarea>
         </label>
         <button type="submit" class="btn btn-primary col-4 ms-auto">ADD</button>
     </form>
