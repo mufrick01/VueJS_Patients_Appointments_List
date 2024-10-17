@@ -1,7 +1,7 @@
 import FormPatientAppointment from '@/components/FormPatientAppointment.vue';
 <template>
-    <form class="d-flex flex-column gap-2 container p-5 justify-content-center" style="font-size: 15px;">
-        <h2 class="text-center mb-4" style="font-size: 50px;" >Add Patient Appointment</h2>
+    <form class="d-flex flex-column gap-2 container p-5 justify-content-center" style="font-size: 15px;" @submit.prevent="SendForm">
+        <h2 class="text-center mb-4" style="font-size: 50px;">Add Patient Appointment</h2>
         <label class="row">
             <span class="col-4 text-start">Name</span>
             <input type="text" class="col-8" v-model="formPatientAppointment.name">
@@ -59,13 +59,15 @@ export default {
             }
         };
     },
-    props: {
-        propA: String,
-        propB: {
-            type: String,
-            default: 'default-value',
-            required: true,
-        },
+    methods: {
+        SendForm() {
+            this.$emit('form-sent',
+                {
+                    id: Date.now(),
+                    ...this.formPatientAppointment
+                }
+            )
+        }
     }
 };
 </script>
