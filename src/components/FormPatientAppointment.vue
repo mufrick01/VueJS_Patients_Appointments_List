@@ -1,7 +1,7 @@
 import FormPatientAppointment from '@/components/FormPatientAppointment.vue';
 <template>
-    <form class="d-flex flex-column gap-2 container p-5 justify-content-center" style="font-size: 15px;" @submit.prevent="SendForm">
-        <h2 class="text-center mb-4" style="font-size: 50px;">Add Patient Appointment</h2>
+    <form class="d-flex flex-column gap-2 p-4 justify-content-center" style="font-size: 15px;" @submit.prevent="SendForm">
+        <h2 class="text-center mb-4" style="font-size: 40px;">Add Patient Appointment</h2>
         <label class="row">
             <span class="col-4 text-start">Name</span>
             <input type="text" class="col-8" v-model="formPatientAppointment.name">
@@ -24,7 +24,7 @@ import FormPatientAppointment from '@/components/FormPatientAppointment.vue';
         </label>
         <label class="row">
             <span class="col-4 text-start">Notes</span>
-            <textarea class="col-8" v-model="formPatientAppointment.notes"></textarea>
+            <textarea maxlength="200" class="col-8" v-model="formPatientAppointment.notes"></textarea>
         </label>
         <button type="submit" class="btn btn-primary col-4 ms-auto">ADD</button>
     </form>
@@ -46,16 +46,23 @@ export default {
                 },
                 {
                     type: 'Non-Urgent',
-                    color: '#f00'
+                    color: '#00f'
                 }
             ],
 
+            // formPatientAppointment: {
+            //     name: '',
+            //     date: '',
+            //     time: '',
+            //     severity: '',
+            //     notes: '',
+            // }
             formPatientAppointment: {
-                name: '',
-                date: '',
-                time: '',
-                severity: '',
-                notes: '',
+                name: 'Jhon doe',
+                date: '1999-01-01',
+                time: '02:02',
+                severity: '#f00',
+                notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamet',
             }
         };
     },

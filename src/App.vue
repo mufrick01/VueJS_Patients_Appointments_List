@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="bg-dark text-white">
-    <MainPage />
+    <MainPage class="mainPage"/>
   </div>
 </template>
 
@@ -17,5 +17,11 @@ export default {
 </script>
 
 <style>
-#app {}
+
+.mainPage{
+  background-color: #333;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
 </style>
