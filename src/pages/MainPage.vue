@@ -8,7 +8,7 @@
       <hr>
       <div class="d-flex flex-wrap justify-content-center">
         <CardPatientAppointment v-for="(patient) in patientsAppointments" :key="patient.id" :patient="patient"
-        class="text-dark" style="width: 300px;"/>
+        class="text-dark" style="width: 300px;" @delete-card="deleteByID(patient.id)" />
       </div>
     </article>
   </section>
@@ -32,6 +32,9 @@ export default {
   methods: {
     formHandler(formData) {
       this.patientsAppointments.push(formData)
+    },
+    deleteByID(value){
+      this.patientsAppointments = this.patientsAppointments.filter(({id})=>id!==value)
     }
   }
 };
