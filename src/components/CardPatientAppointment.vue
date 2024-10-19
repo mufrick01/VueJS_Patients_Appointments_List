@@ -5,7 +5,7 @@
       <h6>{{ time }} | {{ date }}</h6>
       <h5 class="fw-bold">Notes</h5>
       <p class="bg-light p-2">{{ notes }}</p>
-      <button class="mt-auto p-2 text-capitalize">delete</button>
+      <button class="mt-auto p-1 fw-bolder text-capitalize btn btn-danger" style="border: #222 solid 2px; font-size: 30px;" @click="deleteButtonHandler">delete</button>
     </div>
 </template>
 
@@ -21,6 +21,11 @@ export default {
   data(){
     const {id,name,date,time,severity,notes} = this.patient
     return {id,name,date,time,severity,notes}
+  },
+  methods:{
+    deleteButtonHandler(){
+      this.$emit('delete-card',{idToDelete:this.id})
+    }
   }
 };
 </script>
