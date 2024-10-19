@@ -1,14 +1,14 @@
 <template>
   <section class="h-100 row">
     <article class="col-12 col-lg-4 bg-dark">
-      <FormPatientAppointment class="mx-auto" @form-sent="formHandler" />
+      <FormPatientAppointment class="mx-auto" @form-sent="addPatientToList" />
     </article>
     <article class="col-12 col-lg-8 d-flex flex-column">
       <h2 class="text-center text-capitalize mt-4">Appointments List</h2>
       <hr>
       <div class="d-flex flex-wrap justify-content-center">
         <CardPatientAppointment v-for="(patient) in patientsAppointments" :key="patient.id" :patient="patient"
-        class="text-dark" style="width: 300px;" @delete-card="deleteByID(patient.id)" />
+        class="text-dark" style="width: 300px;" @click-delete="deletePatientFromList" />
       </div>
     </article>
   </section>
@@ -30,11 +30,11 @@ export default {
     };
   },
   methods: {
-    formHandler(formData) {
+    addPatientToList(formData) {
       this.patientsAppointments.push(formData)
     },
-    deleteByID(value){
-      this.patientsAppointments = this.patientsAppointments.filter(({id})=>id!==value)
+    deletePatientFromList(patientToDelete){
+      this.patientsAppointments = this.patientsAppointments.filter((patient)=>patient!==patientToDelete)
     }
   }
 };

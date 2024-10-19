@@ -5,7 +5,7 @@
       <h6>{{ time }} | {{ date }}</h6>
       <h5 class="fw-bold">Notes</h5>
       <p class="bg-light p-2">{{ notes }}</p>
-      <button class="mt-auto p-1 fw-bolder text-capitalize btn btn-danger" style="border: #222 solid 2px; font-size: 30px;" @click="deleteButtonHandler">delete</button>
+      <button class="mt-auto p-1 fw-bolder text-capitalize btn btn-danger" style="border: #222 solid 2px; font-size: 30px;" @click="clickDeleteButton">delete</button>
     </div>
 </template>
 
@@ -23,8 +23,8 @@ export default {
     return {id,name,date,time,severity,notes}
   },
   methods:{
-    deleteButtonHandler(){
-      this.$emit('delete-card',{idToDelete:this.id})
+    clickDeleteButton(){
+      this.$emit('click-delete',this.patient)
     }
   }
 };
